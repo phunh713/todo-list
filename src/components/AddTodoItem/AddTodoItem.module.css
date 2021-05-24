@@ -1,0 +1,5 @@
+.add-new-form {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}

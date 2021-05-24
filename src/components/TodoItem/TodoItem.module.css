@@ -1,0 +1,33 @@
+.item-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.edit-form {
+	display: flex;
+	align-items: stretch;
+	gap: 10px;
+}
+
+.task-action {
+	display: flex;
+	gap: 10px;
+}
+
+.task-text {
+	padding: 10px 0;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 720px) {
+	.item-wrapper {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.task-action {
+		justify-content: flex-end;
+		flex: 1;
+	}
+}

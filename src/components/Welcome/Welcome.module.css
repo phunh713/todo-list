@@ -1,0 +1,13 @@
+.buttons-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-header {
+    background-color: #fff;
+    padding: 15px;
+}
+
+.modal-header h3 {
+    margin: 0;
+}

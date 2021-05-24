@@ -1,0 +1,5 @@
+.init-form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}

@@ -1,0 +1,71 @@
+.button {
+	border: none;
+	height: 40px;
+	min-width: 40px;
+	border-width: 1px;
+	border-style: solid;
+    color: #2a9d8f;
+    border-color: #2a9d8f;
+    background-color: transparent;
+    transition: all ease 0.3s;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.button:not([disabled]):hover {
+	cursor: pointer;
+    background-color: #2a9d8f;
+    color: #fff;
+}
+
+.button:not([disabled]):active {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transform: translateY(-3px);
+}
+
+.button:disabled {
+	cursor: not-allowed;
+	filter: grayscale(1);
+}
+
+.button span {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* RED COLOR */
+.red {
+	color: #e63946;
+    border-color: #e63946;
+}
+
+.red:not([disabled]):hover {
+	background-color: #e63946;
+    color: #fff;
+}
+
+/* BLUE COLOR */
+.blue {
+	color: #48cae4;
+    border-color: #48cae4;
+}
+
+.blue:not([disabled]):hover {
+	background-color: #48cae4;
+    color: #fff;
+}
+
+/* YELLOW COLOR */
+.yellow {
+	color: #fca311;
+    border-color: #fca311;
+}
+
+.yellow:not([disabled]):hover {
+	background-color: #fca311;
+    color: #fff;
+}
