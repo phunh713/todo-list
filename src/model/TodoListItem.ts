@@ -1,4 +1,4 @@
-class Item {
+class TodoListItem {
 	id: string;
 	task: string;
 	done: boolean;
@@ -10,4 +10,4 @@ class Item {
 	}
 }
 
-export default Item;
+export default TodoListItem;

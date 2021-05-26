@@ -1,6 +1,11 @@
 import axiosClient from "./axiosClient";
 
 class TodoListApi {
+	getAllLists() {
+		const url = `todoLists.json`;
+		return axiosClient.get(url);
+	}
+
 	getListById(id: string) {
 		const url = `todoLists/${id}.json`;
 		return axiosClient.get(url);

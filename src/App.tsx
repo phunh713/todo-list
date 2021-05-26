@@ -22,17 +22,18 @@ const App: React.FC = (props) => {
 			{todoListCtx.todoList && (
 				<>
 					<Section style={{ padding: "10px 0" }}>
-						<AddTodoItem />
+						<Card>
+                            <h1>List Name: {todoListCtx.listName}</h1>
+                        </Card>
 					</Section>
 					<Section style={{ padding: "10px 0", display: "flex", gap: "2%", flexWrap: "wrap" }}>
-						<Card style={{maxWidth: 720, minHeight: 300, flex: 3}}>
-							<h2 style={{marginTop: 0}}>Need to Do</h2>
+						<Card className="todo-card" style={{ minHeight: 300, flex: 3 }}>
+							<h2 style={{ marginTop: 0 }}>Need to Do</h2>
 							<TodoList items={notDoneList} />
+                            <AddTodoItem />
 						</Card>
-					{/* </Section>
-					<Section style={{ padding: "10px 0" }}> */}
-						<Card style={{maxWidth: 720, minHeight: 300, flex: 2}}>
-							<h2 style={{marginTop: 0}}>Done</h2>
+						<Card className="todo-card" style={{ minHeight: 300, flex: 2 }}>
+							<h2 style={{ marginTop: 0 }}>Done</h2>
 							<TodoList items={doneList} />
 						</Card>
 					</Section>

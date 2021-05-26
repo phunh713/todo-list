@@ -6,9 +6,10 @@ import Modal from "../../UI/Modal/Modal";
 import TodoListContext from "../../context/todo-list-context";
 import todoListApi from "../../api/todoListApi";
 import { AxiosResponse } from "axios";
-import Item from "../../model/Item";
+import TodoListItem from "../../model/TodoListItem";
 import classes from "./InitTodoList.module.css";
 import { FiCornerDownLeft } from "react-icons/fi";
+import _TodoList from "../../model/TodoList";
 
 interface GetListResponse {
 	[listId: string]: {
@@ -71,7 +72,6 @@ const InitTodoList: FC<{ isCreateNew: boolean }> = ({ isCreateNew }) => {
 			setIsLoading(true);
 			const getList = async () => {
 				const response: AxiosResponse<GetListResponse> = await todoListApi.getListByName(inputValue.trim());
-				console.log(response);
 				setIsLoading(false);
 
 				if (response && Object.keys(response.data).length) {
@@ -81,10 +81,10 @@ const InitTodoList: FC<{ isCreateNew: boolean }> = ({ isCreateNew }) => {
 					const todoList = listData.todoList;
 					const listName = listData.listName;
 
-					let transformedTodoList: Item[] = [];
+					let transformedTodoList: TodoListItem[] = [];
 					if (todoList) {
 						for (let item in todoList) {
-							transformedTodoList.push(new Item(todoList[item].task, item, todoList[item].done));
+							transformedTodoList.push(new TodoListItem(todoList[item].task, item, todoList[item].done));
 						}
 					}
 
@@ -118,7 +118,13 @@ const InitTodoList: FC<{ isCreateNew: boolean }> = ({ isCreateNew }) => {
 					value={inputValue}
 					style={{ flex: 1 }}
 				/>
-				<Button color="green" type="submit" isLoading={isLoading} style={{ height: 38 }}>
+				<Button
+					color="green"
+					type="submit"
+					isLoading={isLoading}
+					style={{ height: 38 }}
+					disable={!inputValue.trim()}
+				>
 					<FiCornerDownLeft size={19} />
 				</Button>
 				<span>{helperText}</span>

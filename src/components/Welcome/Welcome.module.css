@@ -1,6 +1,11 @@
+.welcome {
+    text-align: center;
+}
+
 .buttons-wrapper {
     display: flex;
     gap: 10px;
+    justify-content: center;
 }
 
 .modal-header {

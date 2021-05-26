@@ -1,12 +1,12 @@
 import { createContext, FC, useState } from "react";
-import Item from "../model/Item";
+import TodoListItem from "../model/TodoListItem";
 
 const TodoListContext = createContext<{
 	listId: string;
 	listName: string;
-	todoList: Item[] | null;
-	setTodoList: (listId: string, listName: string, todoList: Item[]) => void;
-	addTodoItem: (item: Item) => void;
+	todoList: TodoListItem[] | null;
+	setTodoList: (listId: string, listName: string, todoList: TodoListItem[]) => void;
+	addTodoItem: (item: TodoListItem) => void;
 	updateTodoItem: (itemid: string, task: string, done: boolean) => void;
 	deleteTodoItem: (itemId: string) => void;
 }>({
@@ -20,7 +20,7 @@ const TodoListContext = createContext<{
 });
 
 export const TodoListContextProvider: FC = ({ children }) => {
-	const [list, setList] = useState<{ listId: string; listName: string; todoList: Item[] | null }>({
+	const [list, setList] = useState<{ listId: string; listName: string; todoList: TodoListItem[] | null }>({
 		listId: "",
 		listName: "",
 		todoList: null,
@@ -30,8 +30,9 @@ export const TodoListContextProvider: FC = ({ children }) => {
 		listId: list.listId,
 		listName: list.listName,
 		todoList: list.todoList,
-		setTodoList: (listId: string, listName: string, todoList: Item[]) => setList({ listId, listName, todoList }),
-		addTodoItem: (item: Item) => {
+		setTodoList: (listId: string, listName: string, todoList: TodoListItem[]) =>
+			setList({ listId, listName, todoList }),
+		addTodoItem: (item: TodoListItem) => {
 			setList((prevState) => {
 				return { ...prevState, todoList: prevState.todoList ? [...prevState.todoList, item] : [item] };
 			});

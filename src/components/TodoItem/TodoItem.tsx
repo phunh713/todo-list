@@ -1,6 +1,6 @@
 import classes from "./TodoItem.module.css";
 import { FC, FormEvent, useContext, useRef, useState } from "react";
-import Item from "../../model/Item";
+import TodoListItem from "../../model/TodoListItem";
 import Card from "../../UI/Card/Card";
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Button/Button";
@@ -10,7 +10,7 @@ import { AxiosResponse } from "axios";
 import { FiCheck, FiCornerDownLeft, FiEdit3, FiTrash2, FiX } from "react-icons/fi";
 import { IoArrowUndoOutline } from "react-icons/io5";
 
-const TodoItem: FC<{ item: Item }> = ({ item }) => {
+const TodoItem: FC<{ item: TodoListItem }> = ({ item }) => {
 	const [isEdit, setIsEdit] = useState<boolean>(false);
 	const [inputValue, setInputValue] = useState<string>(item.task);
 	const editValueRef = useRef(inputValue);
@@ -92,7 +92,7 @@ const TodoItem: FC<{ item: Item }> = ({ item }) => {
 			{!isEdit ? (
 				<div className={classes["item-wrapper"]}>
 					<div className={classes["task-text"]}>
-						<span style={{textDecoration: item.done ? "line-through" : "none"}}>{item.task}</span>
+						<span style={{ textDecoration: item.done ? "line-through" : "none" }}>{item.task}</span>
 					</div>
 					<div className={classes["task-action"]}>
 						{!item.done ? (

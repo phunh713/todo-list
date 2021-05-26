@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import { FC, FormEvent, useContext, useState } from "react";
-import { FiCornerDownLeft } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
 import todoListApi from "../../api/todoListApi";
 import TodoListContext from "../../context/todo-list-context";
 import Button from "../../UI/Button/Button";
@@ -28,7 +28,7 @@ const AddTodoItem: FC = () => {
 					todoListCtx.addTodoItem({ id: response.data.name, task: inputValue, done: false });
 				}
 				setIsLoading(false);
-                setInputValue("")
+				setInputValue("");
 			};
 			addTodoItem();
 		}
@@ -38,7 +38,6 @@ const AddTodoItem: FC = () => {
 	};
 	return (
 		<Card>
-			<h3 style={{ marginTop: 0 }}>Add New Todo Item</h3>
 			<form onSubmit={handleSubmit} className={classes["add-new-form"]}>
 				<Input
 					id="add-todo-item"
@@ -48,7 +47,7 @@ const AddTodoItem: FC = () => {
 					style={{ flex: "1" }}
 				/>
 				<Button type="submit" disable={!inputValue.trim()} isLoading={isLoading}>
-					<FiCornerDownLeft size={17} />
+					<FiPlus size={17} />
 				</Button>
 			</form>
 		</Card>

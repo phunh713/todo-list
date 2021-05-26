@@ -1,8 +1,8 @@
-import Item from "../model/Item";
+import TodoListItem from "../model/TodoListItem";
 
 export const transformFBList: (arg: any) => any = (response) => {
-    let result: Item[] = []
-    for (let key in response) {
-        // result.push(new Item()) 
-    }
-}
+	let result: TodoListItem[] = [];
+	for (let key in response) {
+		// result.push(new Item())
+	}
+};
